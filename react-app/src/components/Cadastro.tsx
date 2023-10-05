@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-const Login = () =>{
+const Registro = () =>{
     const [email, setEmail]= useState('');
     const [pass, setPass]= useState('');
+    const [name, setName]= useState('');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         //**Vitin esse prevent evita que a pagina recarregue sozinha ao inserir algum dado nos input */
@@ -13,6 +14,8 @@ const Login = () =>{
     return(
         <>    
             <form onSubmit={handleSubmit}>
+                <label htmlFor="nome"> Nome completo </label>
+                <input value={name} onChange={(e) => setPass(e.target.value)} type="text" name="name" id="name" placeholder="Senha" required/>
                 <label htmlFor="usuario"> Usuário </label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="user" placeholder="Insira o email..." required/>
                 <label htmlFor="senha"> Senha </label>
@@ -23,8 +26,6 @@ const Login = () =>{
             <button>Não tem conta ainda! O que está esperando?</button>
         </>
     )
-
 }
 
-
-export default Login;
+export default Registro;
